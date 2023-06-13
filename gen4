@@ -1,0 +1,19 @@
+data = dict(
+    samples_per_gpu=2,
+    workers_per_gpu=2,
+    train=dict(
+        type=dataset_type,
+        ann_file=data_root + 'annotations/objects365_train.json',
+        img_prefix=data_root + 'train/',
+        pipeline=train_pipeline),
+    val=dict(
+        type=dataset_type,
+        ann_file=data_root + 'annotations/objects365_val.json',
+        img_prefix=data_root + 'val/',
+        pipeline=test_pipeline),
+    test=dict(
+        type=dataset_type,
+        ann_file=data_root + 'annotations/objects365_val.json',
+        img_prefix=data_root + 'val/',
+        pipeline=test_pipeline))
+evaluation = dict(interval=1, metric='bbox')
